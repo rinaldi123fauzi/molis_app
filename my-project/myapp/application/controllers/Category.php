@@ -4,6 +4,7 @@
             parent::__construct();
             $this->load->model('Category_model');
             $this->load->library('form_validation');
+            is_logged_in();
         }
         public function index(){
             $data['data'] = $this->Category_model->getAllData();

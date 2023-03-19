@@ -6,6 +6,7 @@
             $this->load->model('Role_model');
             $this->load->model('Dealer_model');
             $this->load->library('form_validation');
+            is_logged_in();
         }
         public function index(){
             $data['data'] = $this->User_model->getAllData();

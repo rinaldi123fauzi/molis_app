@@ -187,8 +187,7 @@
 							<ul>
 							    <li><a href="#">Account</a></li>
 							    <li><a href="#">Check Out</a></li>
-							    <li><a href="#">Sign In</a></li>
-							    <li><a href="#">Sign Out</a></li>
+							    <li><a href="<?= base_url('auth/logout'); ?>">Sign Out</a></li>
 							    <li><a href="#">Register</a></li>
 							</ul>
 						</div>

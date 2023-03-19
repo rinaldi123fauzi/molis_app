@@ -4,6 +4,7 @@
             parent::__construct();
             $this->load->model('Dealer_model');
             $this->load->library('form_validation');
+            is_logged_in();
         }
         public function index(){
             $data['data'] = $this->Dealer_model->getAllData();

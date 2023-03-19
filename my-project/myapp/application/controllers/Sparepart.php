@@ -6,6 +6,7 @@
             $this->load->model('Dealer_model');
             $this->load->model('Category_model');
             $this->load->library('form_validation');
+            is_logged_in();
         }
         public function index(){
             $data['data'] = $this->Sparepart_model->getAllData();
