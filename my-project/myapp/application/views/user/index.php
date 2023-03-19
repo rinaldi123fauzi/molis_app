@@ -2,7 +2,7 @@
 	<div class="container">
 		<ul>
 			<li><a href="index.html">Home</a></li>
-			<li>Master Dealer</li>
+			<li>Master User</li>
 		</ul>
 	</div>
 </div>
@@ -10,21 +10,9 @@
 	<div class="container-indent-04">
 		<div class="container">
 			<div class="tt-block-title tt-sub-pages">
-				<h1 class="tt-title">Master Category</h1>
+				<h1 class="tt-title">Master User</h1>
 			</div>
-            <a href="<?= base_url();?>category/add" class="btn btn-info btn-md mb-3">+Tambah</a>
-            <?php if($this->session->flashdata('flash')): ?>
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            Data category<strong> berhasil</strong>  <?= $this->session->flashdata('flash'); ?>.
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
+            <a href="<?= base_url();?>user/add" class="btn btn-info btn-md mb-3">+Tambah</a>
 			<div class="row">
 				<div class="col-md-12">
                     <div class="table-responsive">
@@ -32,7 +20,9 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Category</th>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th>Dealer</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -43,10 +33,12 @@
                                 <?php foreach ($data as $data): ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $data['nama_kategori']?></td>
+                                        <td><?= $data['username']?></td>
+                                        <td><?= $data['nama_role']?></td>
+                                        <td><?= $data['nama_dealer']?></td>
                                         <td>
-                                            <a href="<?= base_url('category/edit/'.$data['id']);?>" class="btn btn-success btn-sm">Edit</a>
-                                            <a href="<?= base_url('category/delete/'.$data['id']);?>" class="btn btn-success btn-sm" onclick="return confirm('Anda yakin ?')">Hapus</a>
+                                            <a href="<?= base_url('user/edit/'.$data['userid']);?>" class="btn btn-success btn-sm">Edit</a>
+                                            <a href="<?= base_url('user/delete/'.$data['userid']);?>" class="btn btn-success btn-sm" onclick="return confirm('Anda yakin ?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>     

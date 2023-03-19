@@ -1,32 +1,38 @@
 <?php
     class Sparepart_model extends CI_Model{
         public function getAllData(){
-            $this->db->select('*');
+            $this->db->select('sparepart.id AS sparepartid, sparepart.*, category.*, dealer.*, user.*');
             $this->db->from('sparepart');
             $this->db->join('user', 'user.id = sparepart.user_id', 'left');
             $this->db->join('category', 'category.id = sparepart.category_id');
             $this->db->join('dealer', 'dealer.id = sparepart.dealer_id');
             return $this->db->get()->result_array();
         }
-        public function tambahDataDealer(){
+        public function tambahDataSparepart(){
             $data = array(
-                "nama_dealer" => $this->input->post('namaDealer', true)
+                "nama_sparepart" => $this->input->post('namaSparepart', true),
+                "harga" => $this->input->post('harga', true),
+                "category_id" => $this->input->post('category', true),
+                "dealer_id" => $this->input->post('dealer', true)
             );
-            $this->db->insert('dealer',$data);
+            $this->db->insert('sparepart',$data);
         }
-        public function getDealerById($id){
-            return $this->db->get_where('dealer',['id' => $id])->row_array();
+        public function getSparepartById($id){
+            return $this->db->get_where('sparepart',['id' => $id])->row_array();
         }
-        public function ubahDataDealer(){
+        public function ubahDataSparepart(){
             $data = array(
-                "nama_dealer" => $this->input->post('namaDealer', true),
+                "nama_sparepart" => $this->input->post('namaSparepart', true),
+                "harga" => $this->input->post('harga', true),
+                "category_id" => $this->input->post('category', true),
+                "dealer_id" => $this->input->post('dealer', true),
             );
             $this->db->where('id',$this->input->post('id'));
-            $this->db->update('dealer',$data); 
+            $this->db->update('sparepart',$data); 
         }
-        public function hapusDataDealer($id){
+        public function hapusDataSparepart($id){
             $this->db->where('id',$id);
-            $this->db->delete('dealer');
+            $this->db->delete('sparepart');
         }
     }
 ?>

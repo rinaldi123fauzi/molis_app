@@ -12,7 +12,7 @@
 			<div class="tt-block-title tt-sub-pages">
 				<h1 class="tt-title">Master Sparepart</h1>
 			</div>
-            <a href="<?= base_url();?>dealer/add" class="btn btn-info btn-md mb-3">+Tambah</a>
+            <a href="<?= base_url();?>sparepart/add" class="btn btn-info btn-md mb-3">+Tambah</a>
 			<div class="row">
 				<div class="col-md-12">
                     <div class="table-responsive">
@@ -37,8 +37,8 @@
                                         <td><?= $data['nama_kategori']?></td>
                                         <td><?= $data['nama_dealer']?></td>
                                         <td>
-                                            <a href="<?= base_url('dealer/edit/'.$data['id']);?>" class="btn btn-success btn-sm">Edit</a>
-                                            <a href="<?= base_url('dealer/delete/'.$data['id']);?>" class="btn btn-success btn-sm" onclick="return confirm('Anda yakin ?')">Hapus</a>
+                                            <a href="<?= base_url('sparepart/edit/'.$data['sparepartid']);?>" class="btn btn-success btn-sm">Edit</a>
+                                            <a href="<?= base_url('sparepart/delete/'.$data['sparepartid']);?>" class="btn btn-success btn-sm" onclick="return confirm('Anda yakin ?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>     

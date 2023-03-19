@@ -264,7 +264,7 @@
 							<nav>
 								<ul>
 									<li>
-										<a href="index.html">HOME</a>
+										<a href="<?= base_url();?>">HOME</a>
 										<!-- <ul>
 											<li><a href="index-moto.html">Moto Leader</a></li> 
 											<li  > <a href="news.html">News</a></li>
@@ -281,11 +281,14 @@
 										</ul>
 										
 									</li>
+					
 									<li class="is-subMenu">
-										<a href="about-us.html">ABOUT US</a>
+										<a href="about-us.html">Master Data</a>
 										<ul>
-											<li><a href="about-us-testimonials.html">TESTIMONIALS</a></li>
-											<li><a href="contact.html">CONTACTS</a></li>
+											<li><a href="<?= base_url('sparepart')?>">Sparepart</a></li>
+											<li><a href="<?= base_url('category')?>">Category</a></li>
+											<li><a href="<?= base_url('dealer')?>">Dealer</a></li>
+											<li><a href="<?= base_url('user')?>">User</a></li>
 										</ul>
 									</li>
 									

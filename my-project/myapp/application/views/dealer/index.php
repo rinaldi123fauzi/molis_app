@@ -12,6 +12,18 @@
 			<div class="tt-block-title tt-sub-pages">
 				<h1 class="tt-title">Master Dealer</h1>
 			</div>
+            <?php if($this->session->flashdata('flash')): ?>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            Data mahasiswa<strong> berhasil</strong>  <?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
             <a href="<?= base_url();?>dealer/add" class="btn btn-info btn-md mb-3">+Tambah</a>
 			<div class="row">
 				<div class="col-md-12">

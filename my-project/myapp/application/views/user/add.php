@@ -18,31 +18,40 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Nama Sparepart</label>
-                                    <input type="text" class="form-control" name="namaSparepart" value="<?= set_value('namaSparepart') ?>">
-                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('namaSparepart'); ?></small>
-                                </div>
-								<div class="form-group">
-                                    <label for="">Category</label>
-									<select name="category" id="" class="form-control">
-										<option selected disabled>--Pilih--</option>
-										<?php foreach ($category as $category):?>
-											<?php if (set_value('category') == $category['id']){?>
-												<option value="<?= $category['id']; ?>" selected><?= $category['nama_kategori']; ?></option>
-											<?php }else{?>
-												<option value="<?= $category['id']; ?>"><?= $category['nama_kategori']; ?></option>
-											<?php } ?>
-										<?php endforeach;?>
-									</select>
-                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('category'); ?></small>
+                                    <label for="">Username</label>
+                                    <input type="text" class="form-control" name="username" value="<?= set_value('username') ?>">
+                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('username'); ?></small>
                                 </div>
                             </div>
 							<div class="col-md-6">
 								<div class="form-group">
-                                    <label for="">Harga</label>
-                                    <input type="number" class="form-control" name="harga" value="<?= set_value('harga') ?>">
-                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('harga'); ?></small>
+                                    <label for="">Email</label>
+                                    <input type="text" class="form-control" name="email" value="<?= set_value('email') ?>">
+                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('email'); ?></small>
                                 </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+                                    <label for="">Role</label>
+									<select name="role" id="" class="form-control">
+										<option selected disabled>--Pilih--</option>
+										<?php foreach ($role as $role):?>
+											<?php if (set_value('role') == $role['id']){?>
+												<option value="<?= $role['id']; ?>" selected><?= $role['nama_role']; ?></option>
+											<?php }else{?>
+												<option value="<?= $role['id']; ?>"><?= $role['nama_role']; ?></option>
+											<?php } ?>
+										<?php endforeach;?>
+									</select>
+                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('role'); ?></small>
+                                </div>
+								<div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="password" class="form-control" name="password1" value="<?= set_value('password1') ?>">
+                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('password1'); ?></small>
+                                </div>
+							</div>
+							<div class="col-md-6">
 								<div class="form-group">
                                     <label for="">Dealer</label>
 									<select name="dealer" id="" class="form-control">
@@ -56,6 +65,11 @@
 										<?php endforeach;?>
 									</select>
                                     <small id="emailHelp" class="form-text text-danger"><?= form_error('dealer'); ?></small>
+                                </div>
+								<div class="form-group">
+                                    <label for="">Retype Password</label>
+                                    <input type="password" class="form-control" name="password2" value="<?= set_value('password2') ?>">
+                                    <small id="emailHelp" class="form-text text-danger"><?= form_error('password2'); ?></small>
                                 </div>
 							</div>
                             <div class="col-md-6">

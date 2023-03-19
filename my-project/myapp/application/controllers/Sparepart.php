@@ -3,6 +3,8 @@
         public function __construct(){
             parent::__construct();
             $this->load->model('Sparepart_model');
+            $this->load->model('Dealer_model');
+            $this->load->model('Category_model');
             $this->load->library('form_validation');
         }
         public function index(){
@@ -14,7 +16,12 @@
         }
         public function add(){
             $data['judul'] = "Tambah Sparepart";
+            $data['category'] = $this->Category_model->getAllData();
+            $data['dealer'] = $this->Dealer_model->getAllData();
             $this->form_validation->set_rules('namaSparepart','Sparepart','required');
+            $this->form_validation->set_rules('category','Category','required');
+            $this->form_validation->set_rules('harga','Harga','required');
+            $this->form_validation->set_rules('dealer','Dealer','required');
             if ($this->form_validation->run() == FALSE) {
                 # code...
                 $this->load->view('templates/header');
@@ -29,8 +36,13 @@
         }
         public function edit($id){
             $data['sparepart'] = $this->Sparepart_model->getSparepartById($id);
+            $data['category'] = $this->Category_model->getAllData();
+            $data['dealer'] = $this->Dealer_model->getAllData();
             $data['judul'] = "Edit Sparepart";
             $this->form_validation->set_rules('namaSparepart','Sparepart','required');
+            $this->form_validation->set_rules('harga','Harga','required');
+            $this->form_validation->set_rules('category','Category','required');
+            $this->form_validation->set_rules('dealer','Dealer','required');
             if ($this->form_validation->run() == FALSE) {
                 # code...
                 $this->load->view('templates/header');
