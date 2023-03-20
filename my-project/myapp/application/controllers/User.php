@@ -8,6 +8,7 @@
             $this->load->library('form_validation');
             is_logged_in();
         }
+
         public function index(){
             $data['data'] = $this->User_model->getAllData();
             $this->load->view('templates/header');
@@ -15,6 +16,7 @@
             $this->load->view('user/index',$data);
             $this->load->view('templates/footer');
         }
+
         public function add(){
             $data['judul'] = "Tambah User";
             $data['role'] = $this->Role_model->getAllData();
@@ -37,6 +39,7 @@
                 redirect('user');
             }
         }
+
         public function edit($id){
             $data['judul'] = "Tambah User";
             $data['user'] = $this->User_model->getUserById($id);
@@ -60,6 +63,7 @@
                 redirect('user');
             }
         }
+        
         public function delete($id){
             $this->User_model->hapusDataUser($id);
             $this->session->set_flashdata('flash', 'Dihapus');

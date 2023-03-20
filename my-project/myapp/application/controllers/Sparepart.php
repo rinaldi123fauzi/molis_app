@@ -8,6 +8,7 @@
             $this->load->library('form_validation');
             is_logged_in();
         }
+        
         public function index(){
             $data['data'] = $this->Sparepart_model->getAllData();
             $this->load->view('templates/header');
@@ -15,10 +16,16 @@
             $this->load->view('sparepart/index',$data);
             $this->load->view('templates/footer');
         }
+
         public function add(){
             $data['judul'] = "Tambah Sparepart";
             $data['category'] = $this->Category_model->getAllData();
             $data['dealer'] = $this->Dealer_model->getAllData();
+            if ($this->session->userdata('role_id') == 3) {
+                # code...
+                $id = $this->session->userdata('dealer_id');
+                $data['dealer'] = $this->Dealer_model->getDealerById($id);
+            }
             $this->form_validation->set_rules('namaSparepart','Sparepart','required');
             $this->form_validation->set_rules('category','Category','required');
             $this->form_validation->set_rules('harga','Harga','required');
@@ -35,11 +42,17 @@
                 redirect('sparepart');
             }
         }
+
         public function edit($id){
             $data['sparepart'] = $this->Sparepart_model->getSparepartById($id);
             $data['category'] = $this->Category_model->getAllData();
             $data['dealer'] = $this->Dealer_model->getAllData();
             $data['judul'] = "Edit Sparepart";
+            if ($this->session->userdata('role_id') == 3) {
+                # code...
+                $id = $this->session->userdata('dealer_id');
+                $data['dealer'] = $this->Dealer_model->getDealerById($id);
+            }
             $this->form_validation->set_rules('namaSparepart','Sparepart','required');
             $this->form_validation->set_rules('harga','Harga','required');
             $this->form_validation->set_rules('category','Category','required');
@@ -56,6 +69,7 @@
                 redirect('sparepart');
             }
         }
+
         public function delete($id){
             $this->Sparepart_model->hapusDataSparepart($id);
             $this->session->set_flashdata('flash', 'Dihapus');

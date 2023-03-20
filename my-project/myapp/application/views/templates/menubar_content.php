@@ -282,12 +282,22 @@
 									</li>
 					
 									<li class="is-subMenu">
-										<a href="about-us.html">Master Data</a>
+										<a href="#">Master Data</a>
 										<ul>
-											<li><a href="<?= base_url('sparepart')?>">Sparepart</a></li>
-											<li><a href="<?= base_url('category')?>">Category</a></li>
-											<li><a href="<?= base_url('dealer')?>">Dealer</a></li>
-											<li><a href="<?= base_url('user')?>">User</a></li>
+											<?php if ($this->session->userdata('role_id') == 1):?>
+												<li><a href="<?= base_url('sparepart')?>">Sparepart</a></li>
+												<li><a href="<?= base_url('category')?>">Category</a></li>
+												<li><a href="<?= base_url('dealer')?>">Dealer</a></li>
+												<li><a href="<?= base_url('user')?>">User</a></li>
+											<?php endif; ?>
+											<?php if ($this->session->userdata('role_id') == 3):?>
+												<li><a href="<?= base_url('sparepart')?>">Sparepart</a></li>
+											<?php endif; ?>
+											<?php if ($this->session->userdata('role_id') == 2):?>
+												<li><a href="<?= base_url('sparepart')?>">Sparepart</a></li>
+												<li><a href="<?= base_url('category')?>">Category</a></li>
+												<li><a href="<?= base_url('dealer')?>">Dealer</a></li>
+											<?php endif; ?>
 										</ul>
 									</li>
 									

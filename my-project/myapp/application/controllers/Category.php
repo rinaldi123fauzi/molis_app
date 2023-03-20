@@ -6,6 +6,7 @@
             $this->load->library('form_validation');
             is_logged_in();
         }
+
         public function index(){
             $data['data'] = $this->Category_model->getAllData();
             $this->load->view('templates/header');
@@ -13,6 +14,7 @@
             $this->load->view('category/index',$data);
             $this->load->view('templates/footer');
         }
+
         public function add(){
             $data['judul'] = "Tambah Category";
             $this->form_validation->set_rules('namaCategory','Category','required');
@@ -28,6 +30,7 @@
                 redirect('category');
             }
         }
+
         public function edit($id){
             $data['category'] = $this->Category_model->getCategoryById($id);
             $data['judul'] = "Edit Category";
@@ -44,6 +47,7 @@
                 redirect('category');
             }
         }
+        
         public function delete($id){
             $this->Category_model->hapusDataCategory($id);
             $this->session->set_flashdata('flash', 'Dihapus');

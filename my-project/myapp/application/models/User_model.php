@@ -7,6 +7,7 @@
             $this->db->join('dealer', 'dealer.id = user.dealer_id', 'left');
             return $this->db->get()->result_array();
         }
+
         public function tambahDataUser(){
             $data = array(
                 'username' => $this->input->post('username'),
@@ -17,9 +18,11 @@
             );
             $this->db->insert('user',$data);
         }
+
         public function getUserById($id){
             return $this->db->get_where('user',['id' => $id])->row_array();
         }
+
         public function ubahDataUser(){
             if ($this->input->post('password1')) {
                 # code...
@@ -41,6 +44,7 @@
             $this->db->where('id',$this->input->post('id'));
             $this->db->update('user',$data);
         }
+        
         public function hapusDataUser($id){
             $this->db->where('id',$id);
             $this->db->delete('user');

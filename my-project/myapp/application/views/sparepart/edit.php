@@ -46,16 +46,21 @@
                                 </div>
 								<div class="form-group">
                                     <label for="">Dealer</label>
-									<select name="dealer" id="" class="form-control">
-										<option selected disabled>--Pilih--</option>
-										<?php foreach ($dealer as $dealer):?>
-											<?php if ($sparepart['dealer_id'] == $dealer['id']){?>
-												<option value="<?= $dealer['id']; ?>" selected><?= $dealer['nama_dealer']; ?></option>
-											<?php }else{ ?>
-												<option value="<?= $dealer['id']; ?>"><?= $dealer['nama_dealer']; ?></option>
-											<?php } ?>
-										<?php endforeach;?>
-									</select>
+									<?php if ($this->session->userdata('role_id') == 3){?>
+										<input type="text" class="form-control" value="<?= $dealer['nama_dealer'] ?>" readonly>
+										<input type="hidden" class="form-control" name="dealer" value="<?= $dealer['id'] ?>">
+									<?php }else{ ?>
+										<select name="dealer" id="" class="form-control">
+											<option selected disabled>--Pilih--</option>
+											<?php foreach ($dealer as $dealer):?>
+												<?php if ($sparepart['dealer_id'] == $dealer['id']){?>
+													<option value="<?= $dealer['id']; ?>" selected><?= $dealer['nama_dealer']; ?></option>
+												<?php }else{ ?>
+													<option value="<?= $dealer['id']; ?>"><?= $dealer['nama_dealer']; ?></option>
+												<?php } ?>
+											<?php endforeach;?>
+										</select>
+									<?php } ?>
                                     <small id="emailHelp" class="form-text text-danger"><?= form_error('dealer'); ?></small>
                                 </div>
 							</div>
