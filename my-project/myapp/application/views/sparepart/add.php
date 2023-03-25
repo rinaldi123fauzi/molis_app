@@ -67,7 +67,6 @@
 								<div class="form-group">
                                     <label for="">Gambar</label>
 									<input type="file" name="image" id="image" class="form-control">
-                                    <img src="<?= base_url('assets/images/logo-dark.png');?>" alt="" class="img-thumbnail">
                                 </div>
 							</div>
 							<div class="col-md-6">
