@@ -306,7 +306,7 @@
 										<a href="catalog.html">CATALOG</a>
 										<ul>
 											<li><a href="catalog.html">CATALOG</a></li> 
-											<li><a href="shop.html">SPAREPARTS</a></li>
+											<li><a href="<?= base_url('home/sparepart_dashboard');?>">SPAREPARTS</a></li>
 												<li><a href="faq.html">FAQ</a></li>
 												<li> <a href="services.html">SERVICES</a></li>
 	

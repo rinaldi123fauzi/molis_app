@@ -9,6 +9,26 @@
             return $this->db->get()->result_array();
         }
 
+        public function getSpecificData($id){
+            $this->db->select('sparepart.id AS sparepartid, sparepart.*, category.*, dealer.*, user.*');
+            $this->db->from('sparepart');
+            $this->db->join('user', 'user.id = sparepart.user_id', 'left');
+            $this->db->join('category', 'category.id = sparepart.category_id');
+            $this->db->join('dealer', 'dealer.id = sparepart.dealer_id');
+            $this->db->where('category_id',$id);
+            return $this->db->get()->result_array();
+        }
+
+        public function getDeskripsiData($deskripsi){
+            $this->db->select('sparepart.id AS sparepartid, sparepart.*, category.*, dealer.*, user.*');
+            $this->db->from('sparepart');
+            $this->db->join('user', 'user.id = sparepart.user_id', 'left');
+            $this->db->join('category', 'category.id = sparepart.category_id');
+            $this->db->join('dealer', 'dealer.id = sparepart.dealer_id');
+            $this->db->like('LOWER(sparepart.nama_sparepart)', strtolower($deskripsi));
+            return $this->db->get()->result_array();
+        }
+
         public function tambahDataSparepart(){
             $data = array(
                 "nama_sparepart" => $this->input->post('namaSparepart', true),

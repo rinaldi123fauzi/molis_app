@@ -270,12 +270,12 @@
 										</ul> -->
 									</li>
 									<li class="is-subMenu">
-										<a href="catalog.html">CATALOG</a>
+										<a href="#">CATALOG</a>
 										<ul>
-											<li><a href="catalog.html">CATALOG</a></li> 
-											<li><a href="shop.html">SPAREPARTS</a></li>
-												<li><a href="faq.html">FAQ</a></li>
-												<li> <a href="services.html">SERVICES</a></li>
+											<li><a href="#">CATALOG</a></li> 
+											<li><a href="<?= base_url('home/sparepart');?>">SPAREPARTS</a></li>
+											<li><a href="faq.html">FAQ</a></li>
+											<li> <a href="services.html">SERVICES</a></li>
 	
 										</ul>
 										
