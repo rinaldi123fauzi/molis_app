@@ -14,7 +14,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -63,10 +63,19 @@
                                     <small id="emailHelp" class="form-text text-danger"><?= form_error('dealer'); ?></small>
                                 </div>
 							</div>
-                            <div class="col-md-6">
-                                <label for="" style="color: transparent;">test</label><br>
-                                <input type="submit" class="btn btn-info" value="Submit">
-                            </div>
+							<div class="col-md-6">
+								<div class="form-group">
+                                    <label for="">Gambar</label>
+									<input type="file" name="image" id="image" class="form-control">
+                                    <img src="<?= base_url('assets/images/logo-dark.png');?>" alt="" class="img-thumbnail">
+                                </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="" style="color: transparent;">test</label><br>
+									<input type="submit" class="btn btn-info" value="Submit">
+								</div>
+							</div>
                         </div>
                     </form>
                 </div>

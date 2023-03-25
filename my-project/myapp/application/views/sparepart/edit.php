@@ -14,7 +14,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="row">
 							<input type="hidden" name="id" value="<?= $sparepart['id']; ?>">
                             <div class="col-md-6">
@@ -64,7 +64,15 @@
                                     <small id="emailHelp" class="form-text text-danger"><?= form_error('dealer'); ?></small>
                                 </div>
 							</div>
-                            <div class="col-md-6">
+							<div class="col-md-6">
+								<div class="form-group">
+                                    <img src="<?= base_url('uploads/'.$sparepart['image']);?>" alt="" class="img-thumbnail" width="100"><br>
+                                    <label for="">Gambar</label>
+									<input type="file" name="image" id="image" class="form-control">
+									<input type="hidden" name="image_old" value="<?= $sparepart['image']; ?>">
+                                </div>
+							</div>
+                            <div class="col-md-12">
                                 <label for="" style="color: transparent;">test</label><br>
                                 <input type="submit" class="btn btn-info" value="Submit">
                             </div>
